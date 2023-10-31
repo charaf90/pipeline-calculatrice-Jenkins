@@ -3,9 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker {
-                    image 'python:3.8-alpine3.16'
-                }
+		environment {
+   		 PATH = "/usr/local/bin:$PATH"
+                	docker {
+                    	image 'python:3.8-alpine3.16'
+                	}
+		}
             }
             steps {
 		sh 'echo $PATH'
